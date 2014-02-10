@@ -37,35 +37,41 @@ abstract class AbstractClient implements HttpClientInterface
      * @throws HttpException If no response can be created an exception should be thrown.
      * @return HttpResponseInterface
      */
-    abstract function request($method, $url, $content = null, array $headers = array(), array $options = array());
+    abstract public function request(
+        $method,
+        $url,
+        $content = null,
+        array $headers = array(),
+        array $options = array()
+    );
     
     public function get($url, $content = null, array $headers = array(), array $options = array())
     {
-        return $this->request(self::METHOD_GET, $url, $content = null, array $headers = array(), array $options = array());
+        return $this->request(self::METHOD_GET, $url, $content, $headers, $options);
     }
 
     public function post($url, $content = null, array $headers = array(), array $options = array())
     {
-        return $this->request(self::METHOD_POST , $url, $content = null, array $headers = array(), array $options = array());
+        return $this->request(self::METHOD_POST, $url, $content, $headers, $options);
     }
 
     public function put($url, $content = null, array $headers = array(), array $options = array())
     {
-        return $this->request(self::METHOD_PUT , $url, $content = null, array $headers = array(), array $options = array());
+        return $this->request(self::METHOD_PUT, $url, $content, $headers, $options);
     }
 
     public function delete($url, $content = null, array $headers = array(), array $options = array())
     {
-        return $this->request(self::METHOD_DELETE , $url, $content = null, array $headers = array(), array $options = array());
+        return $this->request(self::METHOD_DELETE, $url, $content, $headers, $options);
     }
 
     public function head($url, $content = null, array $headers = array(), array $options = array())
     {
-        return $this->request(self::METHOD_HEAD , $url, $content = null, array $headers = array(), array $options = array());
+        return $this->request(self::METHOD_HEAD, $url, $content, $headers, $options);
     }
 
     public function patch($url, $content = null, array $headers = array(), array $options = array())
     {
-        return $this->request(self::METHOD_PATCH , $url, $content = null, array $headers = array(), array $options = array());
+        return $this->request(self::METHOD_PATCH, $url, $content, $headers, $options);
     }
 }
