@@ -1,21 +1,21 @@
 {
-    "name": "payment/httpclient",
+    "name": "fh/httpclientinterface",
     "type": "interface",
-    "description": "http client interface",
+    "description": "Fh http client interface",
     "keywords": ["http client"],
     "license": "MIT",
     "authors": [
         {
-            "name": "Dominik Zogg",
-            "email": "dominik.zogg@gmail.com"
+            "name": "Dan Martin",
+            "email": "dmartin@fh.org"
         }
     ],
     "require": {
         "php": ">=5.3.3"
     },
     "autoload": {
-        "psr-0": { "Payment\\HttpClient\\": "" }
+        "psr-0": { "Fh\\HttpClient\\": "" }
     },
-    "target-dir": "Payment/HttpClient",
+    "target-dir": "Fh/HttpClient",
     "minimum-stability": "dev"
 }

@@ -1,9 +1,13 @@
 <?php
 
-namespace Payment\HttpClient;
+namespace Fh\HttpClient;
 
 /**
- * A HTTP Client
+ * An HTTP Client interface
+ * Based on Payment/HttpClient (http://github.com/payment/httpclient) by Dominik Zogg 
+ * 
+ * @author Dan Martin <dmartin@fh.org>
+ *
  */
 interface HttpClientInterface
 {
@@ -16,7 +20,7 @@ interface HttpClientInterface
     const METHOD_PATCH   = 'PATCH';
     
     /**
-     * Send a http-request and return a http-response.
+     * Send an HTTP request and return an HTTP response.
      *
      * @param string $method HTTP method, uppercase
      * @param string $url Url to send HTTP request to
@@ -27,4 +31,70 @@ interface HttpClientInterface
      * @return ResponseInterface
      */
     public function request($method, $url, $content = null, array $headers = array(), array $options = array());
+    
+    /**
+     * Send an HTTP GET request
+     * @param string $url
+     * @param string $content
+     * @param array $headers
+     * @param array $options
+     * @throws HttpException If no response can be created an exception should be thrown.
+     * @return ResponseInterface
+     */
+    public function get($url, $content = null, array $headers = array(), array $options = array());
+
+    /**
+     * Send an HTTP POST request
+     * @param string $url
+     * @param string $content
+     * @param array $headers
+     * @param array $options
+     * @throws HttpException If no response can be created an exception should be thrown.
+     * @return ResponseInterface
+     */
+    public function post($url, $content = null, array $headers = array(), array $options = array());
+
+    /**
+     * Send an HTTP PUT request
+     * @param string $url
+     * @param string $content
+     * @param array $headers
+     * @param array $options
+     * @throws HttpException If no response can be created an exception should be thrown.
+     * @return ResponseInterface
+     */
+    public function put($url, $content = null, array $headers = array(), array $options = array());
+
+    /**
+     * Send an HTTP DELETE request
+     * @param string $url
+     * @param string $content
+     * @param array $headers
+     * @param array $options
+     * @throws HttpException If no response can be created an exception should be thrown.
+     * @return ResponseInterface
+     */
+    public function delete($url, $content = null, array $headers = array(), array $options = array());
+
+    /**
+     * Send and HTTP HEAD request
+     * @param string $url
+     * @param string $content
+     * @param array $headers
+     * @param array $options
+     * @throws HttpException If no response can be created an exception should be thrown.
+     * @return ResponseInterface
+     */
+    public function head($url, $content = null, array $headers = array(), array $options = array());
+
+    /**
+     * Send an HTTP PATCH reqeust
+     * @param string $url
+     * @param string $content
+     * @param array $headers
+     * @param array $options
+     * @throws HttpException If no response can be created an exception should be thrown.
+     * @return ResponseInterface
+     */
+    public function patch($url, $content = null, array $headers = array(), array $options = array());
 }

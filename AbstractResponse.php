@@ -1,8 +1,15 @@
 <?php
 
-namespace Payment\HttpClient;
+namespace Fh\HttpClient;
 
-class NullResponse implements ResponseInterface
+/**
+ * An abstract implementation of HttpResponseInterface
+ * Based on Payment/HttpClient (http://github.com/payment/httpclient) by Dominik Zogg 
+ * 
+ * @author Dan Martin <dmartin@fh.org>
+ *
+ */
+abstract class AbstractResponse implements HttpResponseInterface
 {
     /**
      * @var integer
