@@ -1,5 +1,5 @@
 {
-    "name": "fh/httpclientinterface",
+    "name": "fh/httpclient",
     "type": "interface",
     "description": "Fh http client interface",
     "keywords": ["http client"],
