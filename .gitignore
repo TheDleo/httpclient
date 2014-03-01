@@ -1,5 +1,9 @@
+.settings/
 .buildpath
 .project
-.settings/
+cache.properties
+composer.phar
+vendor/
+build/
 sql/
 vendor/

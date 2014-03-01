@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpdox xmlns="http://phpdox.net/config">
+    <project name="FH HTTP Client Interface" source="${basedir}/src" workdir="${basedir}/build/phpdox">
+        <collector publiconly="false">
+            <include mask="*.php" />
+            <exclude mask="vendor" />
+        </collector>
+
+        <generator output="build">
+            <enrich base="${basedir}/build">
+                <source type="build" />
+                <source type="phploc">
+                    <file name="logs/phploc.xml" />
+                </source>
+                <source type="pmd">
+                    <file name="logs/pmd.xml" />
+                </source>
+                <source type="checkstyle">
+                    <file name="logs/checkstyle.xml" />
+                </source>
+                <!-- Uncomment when phpunit support is released.
+                <source type="phpunit" />
+                -->
+                <source type="git">
+                    <git binary="/usr/bin/git" />
+                    <history enabled="true" limit="15" cache="${phpDox.project.workdir}/gitlog.xml" />
+                </source>
+            </enrich>
+            <build engine="html" enabled="true" output="api"/>
+        </generator>
+    </project>
+</phpdox>
