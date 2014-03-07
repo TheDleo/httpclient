@@ -1,6 +1,5 @@
 {
-    "name": "fh/httpclient",
-    "type": "interface",
+    "name": "fh/http",
     "description": "Fh http client interface",
     "keywords": ["http client"],
     "license": "MIT",
@@ -16,12 +15,19 @@
     "require-dev": {
         "phpunit/phpunit": "~3.7.27"
     },
+    "suggest": {
+      "kriswallsmith/buzz": "HTTP client for Buzz implementation",
+      "guzzle/guzzle": "HTTP client for the Guzzle implementation"
+    },
     "autoload": {
-        "psr-0": {
-            "Fh\\HttpClient\\": "",
-            "Fh\\HttpClient\\Tests": "tests/"
+        "psr-4": {
+            "Fh\\Http\\": "src/"
          }
     },
-    "target-dir": "Fh/HttpClient",
+    "autoload-dev": {
+        "psr-4": {
+            "Fh\\Http\\Test\\": "tests/"
+         }
+    },
     "minimum-stability": "dev"
 }

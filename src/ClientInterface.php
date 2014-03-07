@@ -1,6 +1,6 @@
 <?php
 
-namespace Fh\HttpClient;
+namespace Fh\Http;
 
 /**
  * An HTTP Client interface
@@ -9,7 +9,7 @@ namespace Fh\HttpClient;
  * @author Dan Martin <dmartin@fh.org>
  *
  */
-interface HttpClientInterface
+interface ClientInterface
 {
     const METHOD_OPTIONS = 'OPTIONS';
     const METHOD_GET     = 'GET';

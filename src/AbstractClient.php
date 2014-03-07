@@ -1,33 +1,18 @@
 <?php
 
-namespace Fh\HttpClient;
+namespace Fh\Http;
 
 /**
- * Abstract implementation of HttpClientInterface
+ * Abstract implementation of Fh\Http\ClientInterface
  * Based on Payment/HttpClient (http://github.com/payment/httpclient) by Dominik Zogg 
  * 
  * @author Dan Martin <dmartin@fh.org>
  *
  */
-abstract class AbstractClient implements HttpClientInterface
+abstract class AbstractClient implements ClientInterface
 {
     /**
-     * The Response object.
-     * @param Fh\HttpcClient\HttpResponseInterface $response
-     */
-    protected $response;
-    
-    /**
-     * Constructor
-     * @param Fh\HttpcClient\HttpResponseInterface $response
-     */
-    public function __construct(Fh\HttpcClient\HttpResponseInterface $response)
-    {
-        $this->response = $response;
-    }
-    
-    /**
-     * Send a http-request and return a http-response.
+     * Make an HTTP request.
      *
      * @param string $method HTTP method, uppercase
      * @param string $url Url to send HTTP request to
@@ -35,7 +20,7 @@ abstract class AbstractClient implements HttpClientInterface
      * @param array $headers Array of Headers, header Name is the key.
      * @param array $options Vendor specific options to activate specific features.
      * @throws HttpException If no response can be created an exception should be thrown.
-     * @return HttpResponseInterface
+     * @return ResponseInterface
      */
     abstract public function request(
         $method,

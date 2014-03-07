@@ -1,15 +1,15 @@
 <?php
 
-namespace Payment\HttpClient;
+namespace Fh\Http;
 
 /**
- * An HTTP Client interface
+ * An HTTP Response interface
  * Http Response returned from {@see HttpClientInterface::request}.
  * Based on Payment/HttpClient (http://github.com/payment/httpclient) by Dominik Zogg 
  * 
  * @author Dan Martin <dmartin@fh.org>
  */
-interface HttpResponseInterface
+interface ResponseInterface
 {
     /**
      * @return integer

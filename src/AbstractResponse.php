@@ -1,6 +1,6 @@
 <?php
 
-namespace Fh\HttpClient;
+namespace Fh\Http;
 
 /**
  * An abstract implementation of HttpResponseInterface
@@ -9,7 +9,7 @@ namespace Fh\HttpClient;
  * @author Dan Martin <dmartin@fh.org>
  *
  */
-abstract class AbstractResponse implements HttpResponseInterface
+abstract class AbstractResponse implements ResponseInterface
 {
     /**
      * @var integer
