@@ -1,6 +1,6 @@
 <?php
 
-namespace Fh\HttpClient;
+namespace Fh\Http;
 
 class HttpException extends \Exception
 {

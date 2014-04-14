@@ -32,21 +32,6 @@ abstract class AbstractResponse implements ResponseInterface
     protected $headers;
 
     /**
-     * Constructor
-     * @param int $statusCode
-     * @param string $contentType
-     * @param string $content
-     * @param array $headers
-     */
-    public function __construct($statusCode, $contentType, $content, array $headers)
-    {
-        $this->statusCode = $statusCode;
-        $this->contentType = $contentType;
-        $this->content = $content;
-        $this->headers = $headers;
-    }
-
-    /**
      * @return int
      */
     public function getStatusCode()
@@ -83,4 +68,14 @@ abstract class AbstractResponse implements ResponseInterface
      * @return mixed
      */
     abstract public function getHeader($name);
+
+    public function setResponse($statusCode, $contentType, $content, $headers)
+    {
+        $this->statusCode = $statusCode;
+        $this->contentType = $contentType;
+        $this->content = $content;
+        $this->headers = $headers;
+
+        return $this;
+    }
 }

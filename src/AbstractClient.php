@@ -12,6 +12,22 @@ namespace Fh\Http;
 abstract class AbstractClient implements ClientInterface
 {
     /**
+     * The response object for this client
+     * @var \Fh\Http\ResponseInterface
+     */
+    protected $responseObj;
+
+    /**
+     * Constructor
+     * @param ResponseInterface $response
+     */
+    public function __construct(ResponseInterface $response = null)
+    {
+        if (!is_null($response)) {
+            $this->responseObj = $response;
+        }
+    }
+    /**
      * Make an HTTP request.
      *
      * @param string $method HTTP method, uppercase

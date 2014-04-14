@@ -36,4 +36,13 @@ interface ResponseInterface
      * @return mixed
      */
     public function getHeader($name);
+
+    /**
+     * Set the response data on the object.
+     * @param int $statusCode
+     * @param string $contentType
+     * @param string $content
+     * @param array $headers
+     */
+    public function setResponse($statusCode, $contentType, $content, $headers);
 }

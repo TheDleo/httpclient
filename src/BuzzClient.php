@@ -15,17 +15,29 @@ use Buzz\Message\Response;
  */
 class BuzzClient extends AbstractClient implements ClientInterface
 {
+    /**
+     *
+     */
     protected $browser;
     
-    public function setClient(Browser $browser)
+    /**
+     * Set the Buzz Browser
+     * @param $browser
+     * @return \Fh\Http\BuzzClient
+     */
+    public function setBrowser(Browser $browser)
     {
         $this->browser = $browser;
         return $this;
     }
     
-    public function getClient()
+    /**
+     * Get the http client
+     * @return \Buzz\Browser
+     */
+    public function getBrowser()
     {
-        if(is_null($this->browser)) {
+        if (is_null($this->browser)) {
             $this->browser = new Browser(new Curl());
         }
         
@@ -33,6 +45,27 @@ class BuzzClient extends AbstractClient implements ClientInterface
     }
 
     /**
+     * Set the response object
+     * @param ResponseInterface $response
+     * @return \Fh\Http\BuzzClient
+     */
+    public function setResponseObj(ResponseInterface $response)
+    {
+        $this->responseObj = $response;
+        return $this;
+    }
+
+    public function getResponseObj()
+    {
+        if (is_null($this->responseObj)) {
+            $this->responseObj = new BuzzResponse();
+        }
+
+        return $this->responseObj;
+    }
+
+    /**
+     * Make an http request
      * @param string $method
      * @param string $url
      * @param null $content
@@ -43,19 +76,17 @@ class BuzzClient extends AbstractClient implements ClientInterface
      */
     public function request($method, $url, $content = null, array $headers = array(), array $options = array())
     {
-        try
-        {
-            $originalResponse = $this->getClient()->call($url, $method, $headers, $content);
+        try {
+            $originalResponse = $this->getBrowser()->call($url, $method, $headers, $content);
 
-            return new BuzzResponse(
+            return $this->getResponseObj()->setResponse(
                 $originalResponse->getStatusCode(),
                 $originalResponse->getHeader('Content-Type'),
                 $originalResponse->getContent(),
                 $originalResponse->getHeaders()
             );
-        }
-        catch(\Exception $e)
-        {
+        } catch (\Exception $e) {
             throw new HttpException($e);
         }
-    }}
+    }
+}
